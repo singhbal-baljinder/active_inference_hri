@@ -1,0 +1,16 @@
+<launch>
+
+    <arg name="node_start_delay" default="5.0" /> 
+    <!-- Include the franka_circular_dynamical_system panda_gazebo_sim.launch -->
+
+    <include file="$(find my_franka_controllers)/launch/motion_generator.launch"></include>
+
+    <include file="$(find my_franka_controllers)/launch/my_cartesian_impedance_controller.launch">
+        <arg name="robot_ip" value="$(arg robot_ip)"/>
+        <arg name="controller" value="$(arg controller)"/>
+    </include>
+    
+    <!-- Run the ai_multimodal_planner_node.py script -->
+    <node name="active_inference_planner_node" pkg="active_inference_hri" type="active_inference_planner_node.py" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/>
+
+</launch>
