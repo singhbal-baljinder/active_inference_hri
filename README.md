@@ -19,7 +19,7 @@ The package can be used together with [`my_franka_controllers`](https://github.c
 roslaunch active_inference_hri experiment_real_robot.launch controller:=my_cartesian_impedance_controller robot_ip:=<your-robot-ip>
 ```
 
-# Paper data and plots
+# 📈 Paper data and plots
 The rosbags of the experiments used in the paper can be found in the data folder. It is possible to generate the plots of the paper using the `plot_experiments_data.ipynb` Jupyter notebook.
 
 # 🖋️ Cite
